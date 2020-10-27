@@ -1,4 +1,4 @@
-declare module '*.css' {
-  const exports: { [exportName: string]: string };
-  export = exports;
+declare module '*.module.css' {
+  const classes: { [key: string]: string };
+  export default classes;
 }

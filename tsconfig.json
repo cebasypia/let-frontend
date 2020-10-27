@@ -8,7 +8,7 @@
     ],
     "plugins": [
       {
-        "name": "css-module-types"
+        "name": "typescript-plugin-css-modules"
       }
     ],
     "allowJs": true,
@@ -28,8 +28,8 @@
     "downlevelIteration": true
   },
   "include": [
-    "src",
     "global.d.ts",
+    "src",
   ],
   "exclude": [
     "node_modules",
