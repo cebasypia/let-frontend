@@ -1,12 +1,18 @@
 import React from 'react';
-import { Card, Avatar } from '@material-ui/core';
-import { getTweets } from 'domains/twitter';
-import * as styles from '../css/TweetCard.css';
+import { Card, CardContent } from '@material-ui/core';
+import TweetHeader from 'components/molecules/TweetHeader';
+import { Tweet } from 'domains/twitter';
+import styles from '../css/TweetCard.module.css';
 
-const tweets = getTweets();
-const TweetCard: React.FC = () => (
-  <Card className={styles.test}>
-    <Avatar alt="user image" src={tweets[0].user.profileImageUrl} />
+type Props = {
+  tweet: Tweet;
+};
+const TweetCard: React.FC<Props> = ({ tweet }) => (
+  <Card className={styles.wrapper}>
+    <TweetHeader tweet={tweet} />
+    <CardContent>
+      <p>{tweet.text}</p>
+    </CardContent>
   </Card>
 );
 
