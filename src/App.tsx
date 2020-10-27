@@ -1,13 +1,15 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
-import logo from './logo.svg';
+import TweetCard from 'components/organisms/TweetCard';
 import './App.css';
 
 const App: React.FC = () => (
   <>
     <Switch>
       <Route exact path="/">
-        <img src={logo} className="App-logo" alt="logo" />
+        <div className="test">
+          <TweetCard />
+        </div>
       </Route>
       <Route path="/home">
         <div>Home</div>
