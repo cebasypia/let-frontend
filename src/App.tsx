@@ -1,14 +1,14 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
-import TweetCard from 'components/organisms/TweetCard';
+import TweetList from 'components/pages/TweetList';
 import './App.css';
 
 const App: React.FC = () => (
   <>
     <Switch>
       <Route exact path="/">
-        <div className="test">
-          <TweetCard />
+        <div>
+          <TweetList />
         </div>
       </Route>
       <Route path="/home">
