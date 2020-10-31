@@ -10,7 +10,7 @@ const TweetList: React.FC = () => {
     <div>
       <SearchForm />
       {tweets.map((tweet) => (
-        <TweetCard tweet={tweet} />
+        <TweetCard key={tweet.id} tweet={tweet} />
       ))}
     </div>
   );
