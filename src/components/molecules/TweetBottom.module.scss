@@ -1,6 +1,9 @@
+@import 'components/scss/spacing.module.scss';
+
 .wrapper {
   display: flex;
   justify-content: space-between;
+  margin-top: $spacing-1;
 }
 
 .icon {
