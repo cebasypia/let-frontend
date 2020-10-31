@@ -5,6 +5,8 @@ export type Tweet = {
   text: string;
   createdAt: string;
   uri: string;
+  retweetCount: number;
+  favoriteCount: number;
   user: User;
 };
 
@@ -15,6 +17,8 @@ const isTweet = (arg: unknown): arg is Tweet => {
     typeof t?.id === 'string' &&
     typeof t?.text === 'string' &&
     typeof t?.createdAt === 'string' &&
+    typeof t?.retweetCount === 'number' &&
+    typeof t?.favoriteCount === 'number' &&
     isUser(t.user)
   );
 };

@@ -16,6 +16,8 @@ const data = [
         'https://pbs.twimg.com/profile_images/1318516254425055232/anq5_8nq_bigger.jpg',
       uri: 'https://twitter.com/kiriechan',
     },
+    retweetCount: 100,
+    favoriteCount: 1,
     uri: 'https://twitter.com/kiriechan/status/1320340917119676416',
   },
   {
@@ -34,6 +36,9 @@ const data = [
         'https://pbs.twimg.com/profile_images/834750396081975297/4jyQQv3t_bigger.jpg',
       uri: 'https://twitter.com/itttdblmUwTjLTV',
     },
+    retweetCount: 1,
+    favoriteCount: 200,
+
     uri: 'https://twitter.com/itttdblmUwTjLTV/status/1320340915806822402',
   },
 ];
