@@ -1,0 +1,28 @@
+@import 'components/scss/color.module.scss';
+@import 'components/scss/spacing.module.scss';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  max-width: $spacing-10;
+  height: $spacing-3;
+  padding: $spacing-0 $spacing-1;
+  margin: $spacing-1 auto;
+  color: $sub_color;
+  border: $sub_color solid 1px;
+  border-radius: ($spacing-3 / 2);
+}
+
+.input {
+  width: 100%;
+  font: inherit;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+
+  :focus {
+    background-color: rgba($color: white, $alpha: 0);
+  }
+}
