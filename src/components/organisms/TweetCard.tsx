@@ -18,7 +18,7 @@ const TweetCard: React.FC<Props> = ({ tweet }) => (
     />
     <div className={styles.contents}>
       <TweetHeader tweet={tweet} />
-      <div>{tweet.text}</div>
+      <p>{tweet.text}</p>
       <TweetBottom tweet={tweet} />
     </div>
   </div>
