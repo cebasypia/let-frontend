@@ -3,3 +3,12 @@
 .mr {
   margin-right: $spacing-1;
 }
+
+.loading {
+  animation: stepRotate 1s steps(8, start) infinite;
+}
+
+@keyframes stepRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

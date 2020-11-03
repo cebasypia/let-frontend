@@ -1,0 +1,6 @@
+@import 'components/scss/spacing.module.scss';
+
+.searchFormWrapper {
+  max-width: $spacing-10;
+  margin: $spacing-1 auto;
+}

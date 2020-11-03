@@ -1,32 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import icon from 'components/scss/icon.module.scss';
+import ErrorMessage from 'components/atoms/ErrorMessage';
 import styles from './SearchForm.module.scss';
 
 type FormData = {
-  searchWord: string;
+  keyword: string;
 };
 
-const SearchForm: React.FC = () => {
-  const { register, handleSubmit } = useForm<FormData>();
-  const onSubmit = handleSubmit(({ searchWord }) => {
-    /* eslint-disable-next-line */
-    console.log(searchWord);
+type Props = {
+  defaultWord: string;
+  isLoading: boolean;
+};
+
+const SearchForm: React.FC<Props> = ({ defaultWord, isLoading }) => {
+  const { register, handleSubmit, errors, setValue } = useForm<FormData>();
+  const history = useHistory();
+  const onSubmit = handleSubmit(({ keyword }) => {
+    history.push(`/?keyword=${keyword}`);
   });
+
+  useEffect(() => {
+    setValue('keyword', defaultWord);
+  }, [setValue, defaultWord]);
 
   return (
     <form onSubmit={onSubmit}>
       <div className={styles.wrapper}>
-        <FontAwesomeIcon className={icon.mr} icon={faSearch} />
+        <FontAwesomeIcon
+          className={`${icon.mr} ${isLoading && icon.loading}`}
+          icon={isLoading ? faSpinner : faSearch}
+        />
         <input
           className={styles.input}
-          name="searchWord"
+          name="keyword"
           type="search"
-          ref={register({ required: true })}
+          defaultValue={defaultWord}
+          ref={register({ required: '検索ワードを入力してください' })}
         />
       </div>
+      <ErrorMessage message={errors.keyword?.message} />
     </form>
   );
 };

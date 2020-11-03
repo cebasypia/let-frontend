@@ -7,7 +7,7 @@ type ReturnValue = {
   isLoading: boolean;
 };
 
-const useGetTweets = (): ReturnValue => {
+const useGetTweets = (keyword: string): ReturnValue => {
   const [tweets, setTweets] = useState<Tweet[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -16,17 +16,18 @@ const useGetTweets = (): ReturnValue => {
       setIsLoading(true);
 
       try {
-        const tweetsData = await getTweets();
+        const tweetsData = await getTweets(keyword);
         setTweets(tweetsData);
       } catch (err) {
-        throw new Error(`error ${err}`);
+        setTweets([]);
+        // throw new Error(`${err}`);
       } finally {
         setIsLoading(false);
       }
     };
 
     void load();
-  }, []);
+  }, [keyword]);
 
   return { tweets, isLoading };
 };

@@ -1,5 +1,11 @@
+// $main_color: #ffa000;
+$main_color: #ffa000;
 $sub_color: #1da1f2;
 $sub_text: gray;
+
+.main {
+  color: $main_color;
+}
 
 .sub {
   color: $sub_color;
