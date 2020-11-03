@@ -14,7 +14,6 @@ const TweetDetail: React.FC = () => {
   return (
     <>
       {tweet ? (
-        // <div>お探しのTweetは見つかりませんでした</div>
         <TweetCard tweet={tweet} />
       ) : (
         <div>お探しのTweetは見つかりませんでした</div>
