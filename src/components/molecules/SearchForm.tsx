@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import icon from 'components/scss/icon.module.scss';
+import ErrorMessage from 'components/atoms/ErrorMessage';
 import styles from './SearchForm.module.scss';
 
 type FormData = {
@@ -29,14 +30,10 @@ const SearchForm: React.FC<Props> = ({ defaultWord, isLoading }) => {
   return (
     <form onSubmit={onSubmit}>
       <div className={styles.wrapper}>
-        {isLoading ? (
-          <FontAwesomeIcon
-            className={`${icon.mr} ${icon.loading}`}
-            icon={faSpinner}
-          />
-        ) : (
-          <FontAwesomeIcon className={icon.mr} icon={faSearch} />
-        )}
+        <FontAwesomeIcon
+          className={`${icon.mr} ${isLoading && icon.loading}`}
+          icon={isLoading ? faSpinner : faSearch}
+        />
         <input
           className={styles.input}
           name="keyword"
@@ -45,7 +42,7 @@ const SearchForm: React.FC<Props> = ({ defaultWord, isLoading }) => {
           ref={register({ required: '検索ワードを入力してください' })}
         />
       </div>
-      <div className={styles.error}>{errors.keyword?.message}</div>
+      <ErrorMessage message={errors.keyword?.message} />
     </form>
   );
 };
