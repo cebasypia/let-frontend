@@ -9,14 +9,14 @@ type TweetId = {
 
 const TweetDetail: React.FC = () => {
   const { tweetId } = useParams<TweetId>();
-  const { tweet } = useGetTweetById(tweetId);
+  const { tweet, isLoading } = useGetTweetById(tweetId);
 
   return (
     <>
       {tweet ? (
         <TweetCard tweet={tweet} />
       ) : (
-        <div>お探しのTweetは見つかりませんでした</div>
+        <div>{!isLoading && 'お探しのTweetは見つかりませんでした'}</div>
       )}
     </>
   );
