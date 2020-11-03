@@ -1,0 +1,33 @@
+import { useEffect, useState } from 'react';
+
+import { Tweet, getTweetById } from 'domains/twitter';
+
+type ReturnValue = {
+  tweet: Tweet | undefined;
+  isLoading: boolean;
+};
+
+export const useGetTweetById = (id: string): ReturnValue => {
+  const [tweet, setTweet] = useState<Tweet | undefined>();
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const load = async (): Promise<void> => {
+      setIsLoading(true);
+
+      try {
+        const tweetData = await getTweetById(id);
+        setTweet(tweetData);
+      } catch (err) {
+        setTweet(undefined);
+        // throw new Error(`${err}`);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    void load();
+  }, [id]);
+
+  return { tweet, isLoading };
+};
