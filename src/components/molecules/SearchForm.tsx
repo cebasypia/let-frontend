@@ -7,7 +7,7 @@ import icon from 'components/scss/icon.module.scss';
 import styles from './SearchForm.module.scss';
 
 type FormData = {
-  searchWord: string;
+  keyword: string;
 };
 
 type Props = {
@@ -16,15 +16,14 @@ type Props = {
 };
 
 const SearchForm: React.FC<Props> = ({ defaultWord, isLoading }) => {
-  const { register, handleSubmit, setValue } = useForm<FormData>();
+  const { register, handleSubmit, errors, setValue } = useForm<FormData>();
   const history = useHistory();
-  const onSubmit = handleSubmit(({ searchWord }) => {
-    // handleWord(searchWord)
-    history.push(`/?word=${searchWord}`);
+  const onSubmit = handleSubmit(({ keyword }) => {
+    history.push(`/?keyword=${keyword}`);
   });
 
   useEffect(() => {
-    setValue('searchWord', defaultWord);
+    setValue('keyword', defaultWord);
   }, [setValue, defaultWord]);
 
   return (
@@ -40,12 +39,13 @@ const SearchForm: React.FC<Props> = ({ defaultWord, isLoading }) => {
         )}
         <input
           className={styles.input}
-          name="searchWord"
+          name="keyword"
           type="search"
           defaultValue={defaultWord}
-          ref={register({ required: true })}
+          ref={register({ required: '検索ワードを入力してください' })}
         />
       </div>
+      <div className={styles.error}>{errors.keyword?.message}</div>
     </form>
   );
 };
