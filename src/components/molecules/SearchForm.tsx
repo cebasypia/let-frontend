@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import icon from 'components/scss/icon.module.scss';
@@ -10,16 +11,21 @@ type FormData = {
 };
 
 type Props = {
-  word: string;
-  handleWord: React.Dispatch<React.SetStateAction<string>>;
+  defaultWord: string;
   isLoading: boolean;
 };
 
-const SearchForm: React.FC<Props> = ({ word, handleWord, isLoading }) => {
-  const { register, handleSubmit } = useForm<FormData>();
+const SearchForm: React.FC<Props> = ({ defaultWord, isLoading }) => {
+  const { register, handleSubmit, setValue } = useForm<FormData>();
+  const history = useHistory();
   const onSubmit = handleSubmit(({ searchWord }) => {
-    handleWord(searchWord);
+    // handleWord(searchWord)
+    history.push(`/?word=${searchWord}`);
   });
+
+  useEffect(() => {
+    setValue('searchWord', defaultWord);
+  }, [setValue, defaultWord]);
 
   return (
     <form onSubmit={onSubmit}>
@@ -36,7 +42,7 @@ const SearchForm: React.FC<Props> = ({ word, handleWord, isLoading }) => {
           className={styles.input}
           name="searchWord"
           type="search"
-          defaultValue={word}
+          defaultValue={defaultWord}
           ref={register({ required: true })}
         />
       </div>
