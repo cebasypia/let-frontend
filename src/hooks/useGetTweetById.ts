@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 import { Tweet, getTweetById } from 'domains/twitter';
 
 type ReturnValue = {
-  tweet: Tweet | undefined;
+  tweet?: Tweet;
   isLoading: boolean;
 };
 
 export const useGetTweetById = (id: string): ReturnValue => {
-  const [tweet, setTweet] = useState<Tweet | undefined>();
-  const [isLoading, setIsLoading] = useState(false);
+  const [tweet, setTweet] = useState<Tweet>();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const load = async (): Promise<void> => {
@@ -19,7 +19,6 @@ export const useGetTweetById = (id: string): ReturnValue => {
         const tweetData = await getTweetById(id);
         setTweet(tweetData);
       } catch (err) {
-        setTweet(undefined);
         // throw new Error(`${err}`);
       } finally {
         setIsLoading(false);
