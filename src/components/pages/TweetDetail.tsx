@@ -4,12 +4,12 @@ import TweetCard from 'components/organisms/TweetCard';
 import { useGetTweetById } from 'hooks/useGetTweetById';
 
 type TweetId = {
-  tweetId: string;
+  id: string;
 };
 
 const TweetDetail: React.FC = () => {
-  const { tweetId } = useParams<TweetId>();
-  const { tweet, isLoading } = useGetTweetById(tweetId);
+  const { id } = useParams<TweetId>();
+  const { tweet, isLoading } = useGetTweetById(id);
 
   return (
     <>
