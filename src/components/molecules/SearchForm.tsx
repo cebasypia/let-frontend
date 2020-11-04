@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import icon from 'components/scss/icon.module.scss';
@@ -19,8 +19,9 @@ type Props = {
 const SearchForm: React.FC<Props> = ({ defaultWord, isLoading }) => {
   const { register, handleSubmit, errors, setValue } = useForm<FormData>();
   const history = useHistory();
+  const location = useLocation();
   const onSubmit = handleSubmit(({ keyword }) => {
-    history.push(`/?keyword=${keyword}`);
+    history.push(`${location.pathname}/?keyword=${keyword}`);
   });
 
   useEffect(() => {
