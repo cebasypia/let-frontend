@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useGetTweets from 'hooks/use-get-tweets';
-import SearchForm from 'components/molecules/SearchForm';
+import SearchBox from 'components/organisms/SearchBox';
 import TweetCard from 'components/organisms/TweetCard';
 import styles from './TweetList.module.scss';
 
@@ -13,9 +13,7 @@ const TweetList: React.FC = () => {
 
   return (
     <div>
-      <div className={styles.searchFormWrapper}>
-        <SearchForm defaultWord={keyword} isLoading={isLoading} />
-      </div>
+      <SearchBox defaultWord={keyword} isLoading={isLoading} />
       {!isLoading && !tweets.length && <div>Tweet not found</div>}
       {tweets.map((tweet) => (
         <Link className={styles.linkStyle} to={location.pathname + tweet.id}>

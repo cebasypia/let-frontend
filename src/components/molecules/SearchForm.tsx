@@ -43,7 +43,9 @@ const SearchForm: React.FC<Props> = ({ defaultWord, isLoading }) => {
           ref={register({ required: '検索ワードを入力してください' })}
         />
       </div>
-      <ErrorMessage message={errors.keyword?.message} />
+      <div className={styles.errorMessage}>
+        <ErrorMessage message={errors.keyword?.message} />
+      </div>
     </form>
   );
 };
