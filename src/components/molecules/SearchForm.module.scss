@@ -24,3 +24,9 @@
     background-color: rgba($color: white, $alpha: 0);
   }
 }
+
+.errorMessage {
+  position: absolute;
+  top: $spacing-3;
+  left: $spacing-1;
+}
