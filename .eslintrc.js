@@ -100,6 +100,7 @@ module.exports = {
         explicitSpread: 'ignore',
       },
     ],
+    'import/prefer-default-export': 'off',
   },
   overrides: [
     {
