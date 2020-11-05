@@ -1,38 +1,5 @@
-@import 'components/scss/color.module.scss';
-@import 'components/scss/spacing.module.scss';
-
 .linkStyle {
   color: inherit;
   text-decoration: none;
   cursor: default;
-}
-
-.hint {
-  font-style: italic;
-  font-weight: 700;
-  line-height: 2rem;
-  text-align: center;
-}
-
-.earth {
-  width: 80%;
-  max-width: 300px;
-  border-radius: 50%;
-  opacity: 0.2;
-  animation: rotation 60s linear infinite;
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.wrapper {
-  margin: auto;
-  text-align: center;
 }
