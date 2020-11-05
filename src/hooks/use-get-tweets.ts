@@ -13,6 +13,8 @@ const useGetTweets = (keyword: string): ReturnValue => {
 
   useEffect(() => {
     const load = async (): Promise<void> => {
+      if (!keyword) return;
+
       setIsLoading(true);
 
       try {

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import icon from 'components/scss/icon.module.scss';
 import ErrorMessage from 'components/atoms/ErrorMessage';
+import { addTrailingSlash } from 'utils/addTrailingSlash';
 import styles from './SearchForm.module.scss';
 
 type FormData = {
@@ -21,7 +22,10 @@ const SearchForm: React.FC<Props> = ({ defaultWord, isLoading }) => {
   const history = useHistory();
   const location = useLocation();
   const onSubmit = handleSubmit(({ keyword }) => {
-    history.push(`${location.pathname}/?keyword=${keyword}`);
+    history.push({
+      pathname: addTrailingSlash(location.pathname),
+      search: `?keyword=${keyword}`,
+    });
   });
 
   useEffect(() => {

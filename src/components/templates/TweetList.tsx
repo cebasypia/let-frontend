@@ -1,26 +1,28 @@
 import React from 'react';
+import { Tweet } from 'domains/twitter';
 import { Link, useLocation } from 'react-router-dom';
-import useGetTweets from 'hooks/use-get-tweets';
-import SearchBox from 'components/organisms/SearchBox';
 import TweetCard from 'components/organisms/TweetCard';
+import { addTrailingSlash } from 'utils/addTrailingSlash';
 import styles from './TweetList.module.scss';
 
-const TweetList: React.FC = () => {
+type Props = {
+  tweets: Tweet[];
+};
+
+const TweetList: React.FC<Props> = ({ tweets }) => {
   const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const keyword = searchParams.get('keyword') ?? '';
-  const { tweets, isLoading } = useGetTweets(keyword);
 
   return (
-    <div>
-      <SearchBox defaultWord={keyword} isLoading={isLoading} />
-      {!isLoading && !tweets.length && <div>Tweet not found</div>}
+    <>
       {tweets.map((tweet) => (
-        <Link className={styles.linkStyle} to={location.pathname + tweet.id}>
+        <Link
+          className={styles.linkStyle}
+          to={addTrailingSlash(location.pathname) + tweet.id}
+        >
           <TweetCard key={tweet.id} tweet={tweet} />
         </Link>
       ))}
-    </div>
+    </>
   );
 };
 

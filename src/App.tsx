@@ -1,8 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
-import Tweets from 'components/pages/Tweets';
-// import TweetList from 'components/pages/TweetList';
-// import TweetDetail from 'components/pages/TweetDetail';
+import Tweets from 'components/Routes/Tweets';
 
 import './App.css';
 
