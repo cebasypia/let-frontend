@@ -6,6 +6,7 @@ export type User = {
   followersCount: number;
   friendsCount: number;
   profileImageUrl: string;
+  profileBannerUrl: string;
   uri: string;
 };
 
@@ -20,6 +21,7 @@ const isUser = (arg: unknown): arg is User => {
     typeof u?.followersCount === 'number' &&
     typeof u?.friendsCount === 'number' &&
     typeof u?.profileImageUrl === 'string' &&
+    typeof u?.profileBannerUrl === 'string' &&
     typeof u?.uri === 'string'
   );
 };
