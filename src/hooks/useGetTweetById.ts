@@ -9,7 +9,7 @@ type ReturnValue = {
 
 export const useGetTweetById = (id: string): ReturnValue => {
   const [tweet, setTweet] = useState<Tweet>();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const load = async (): Promise<void> => {
