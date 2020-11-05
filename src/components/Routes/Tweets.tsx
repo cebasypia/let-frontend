@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, RouteComponentProps } from 'react-router';
-import TweetList from 'components/templates/TweetList';
+import TweetSearch from 'components/pages/TweetSearch';
 import TweetDetail from 'components/templates/TweetDetail';
 
 const Tweets: React.FC<RouteComponentProps> = ({ match }) => {
@@ -8,7 +8,7 @@ const Tweets: React.FC<RouteComponentProps> = ({ match }) => {
     <>
       <Switch>
         <Route exact path={match.url}>
-          <TweetList />
+          <TweetSearch />
         </Route>
         <Route path={`${match.url}/:id`}>
           <TweetDetail />
