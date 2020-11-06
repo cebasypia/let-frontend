@@ -1,7 +1,7 @@
 import React from 'react';
 import TweetHeader from 'components/molecules/TweetHeader';
 import TweetBottom from 'components/molecules/TweetBottom';
-import { Avatar } from '@material-ui/core';
+import Avatar from 'components/atoms/Avatar';
 
 import { Tweet } from 'domains/twitter';
 import styles from './TweetCard.module.scss';
@@ -13,8 +13,8 @@ const TweetCard: React.FC<Props> = ({ tweet }) => (
   <div className={styles.wrapper}>
     <Avatar
       className={styles.avatar}
-      alt="user image"
       src={tweet.user.profileImageUrl}
+      uri={`/tweets/users/${tweet.user.screenName}`}
     />
     <div className={styles.contents}>
       <TweetHeader tweet={tweet} />
