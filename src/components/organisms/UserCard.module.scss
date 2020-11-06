@@ -1,0 +1,27 @@
+@import 'components/scss/spacing.module.scss';
+
+.wrapper {
+  padding: $spacing-1 $spacing-1 $spacing-2 $spacing-1;
+}
+
+.avatarWrapper {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  margin-bottom: $spacing-1;
+  text-align: end;
+}
+
+.avatar {
+  position: absolute;
+  bottom: 0;
+}
+
+.contents {
+  width: 100%;
+  overflow: hidden;
+}
+
+.text {
+  white-space: pre-wrap;
+}
