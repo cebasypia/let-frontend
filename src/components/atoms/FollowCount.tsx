@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Following.module.scss';
+import styles from './FollowCount.module.scss';
 
 type Props = {
   count: number;
