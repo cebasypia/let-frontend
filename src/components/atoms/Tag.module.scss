@@ -1,0 +1,8 @@
+@import 'components/scss/color.module.scss';
+@import 'components/scss/spacing.module.scss';
+
+.wrapper {
+  padding: $spacing-1;
+  text-align: center;
+  border-bottom: 2px solid $sub_color;
+}
