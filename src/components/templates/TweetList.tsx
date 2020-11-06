@@ -1,8 +1,7 @@
 import React from 'react';
 import { Tweet } from 'domains/twitter';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import TweetCard from 'components/organisms/TweetCard';
-import { addTrailingSlash } from 'utils/addTrailingSlash';
 import styles from './TweetList.module.scss';
 
 type Props = {
@@ -10,15 +9,10 @@ type Props = {
 };
 
 const TweetList: React.FC<Props> = ({ tweets }) => {
-  const location = useLocation();
-
   return (
     <>
       {tweets.map((tweet) => (
-        <Link
-          className={styles.linkStyle}
-          to={addTrailingSlash(location.pathname) + tweet.id}
-        >
+        <Link className={styles.linkStyle} to={`/tweets/${tweet.id}`}>
           <TweetCard key={tweet.id} tweet={tweet} />
         </Link>
       ))}

@@ -1,0 +1,35 @@
+@import 'components/scss/color.module.scss';
+
+.wrapper {
+  flex-shrink: 0;
+}
+
+.large {
+  width: 72px;
+  height: 72px;
+}
+
+.normal {
+  width: 40px;
+  height: 40px;
+}
+
+.small {
+  width: 24px;
+  height: 24px;
+}
+
+.image {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+  &.main {
+    border: 2px $main_color solid;
+  }
+
+  &.sub {
+    border: 2px $sub_color solid;
+  }
+}

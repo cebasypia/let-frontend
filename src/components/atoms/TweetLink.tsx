@@ -19,6 +19,7 @@ const TweetLink: React.FC<Props> = ({ uri }) => {
       onClick={handleClick}
       className={`${color.sub} ${icon.button}`}
       icon={faTwitter}
+      size="lg"
     />
   );
 };

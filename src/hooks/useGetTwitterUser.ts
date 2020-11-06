@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 
-import { Tweet, getTweetById } from 'domains/twitter';
+import { User, getTwitterUser } from 'domains/twitter';
 
 type ReturnValue = {
-  tweet?: Tweet;
+  user?: User;
   isLoading: boolean;
 };
 
-export const useGetTweetById = (id: string): ReturnValue => {
-  const [tweet, setTweet] = useState<Tweet>();
+export const useGetTwitterUser = (screenName: string): ReturnValue => {
+  const [user, setUser] = useState<User>();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -16,17 +16,17 @@ export const useGetTweetById = (id: string): ReturnValue => {
       setIsLoading(true);
 
       try {
-        const tweetData = await getTweetById(id);
-        setTweet(tweetData);
+        const userData = await getTwitterUser(screenName);
+        setUser(userData);
       } catch (err) {
-        // throw new Error(`${err}`);
+        throw new Error(err);
       } finally {
         setIsLoading(false);
       }
     };
 
     void load();
-  }, [id]);
+  }, [screenName]);
 
-  return { tweet, isLoading };
+  return { user, isLoading };
 };
