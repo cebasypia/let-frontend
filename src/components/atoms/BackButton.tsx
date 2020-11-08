@@ -2,9 +2,14 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { combineStrings } from 'utils/combineStrings';
 import icon from 'components/scss/icon.module.scss';
 
-const Header: React.FC = () => {
+type Props = {
+  className?: string;
+};
+
+const Header: React.FC<Props> = ({ className = '' }) => {
   const history = useHistory();
   const handleClick = () => {
     history.goBack();
@@ -14,7 +19,7 @@ const Header: React.FC = () => {
     <FontAwesomeIcon
       color="white"
       onClick={handleClick}
-      className={icon.button}
+      className={combineStrings(icon.button, className)}
       icon={faArrowLeft}
       size="lg"
     />

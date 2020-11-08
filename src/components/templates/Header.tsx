@@ -10,7 +10,7 @@ const Header: React.FC = () => {
       <div className={styles.blocker} />
       <header className={styles.wrapper}>
         <div className={combineStrings(styles.box, styles.start)}>
-          <BackButton />
+          <BackButton className={styles.margin} />
         </div>
         <div className={combineStrings(styles.box, styles.center)}>
           <HomeButton />
