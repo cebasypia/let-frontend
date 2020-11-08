@@ -2,22 +2,23 @@
 @import 'components/scss/spacing.module.scss';
 
 .blocker {
-  width: 100%;
+  width: 100vw;
   height: $spacing-5;
 }
 
 .wrapper {
   position: fixed;
   top: 0;
+  right: 0;
   left: 0;
   z-index: 1;
   display: flex;
-  width: 100%;
+  max-width: 100vw;
   height: $spacing-5;
   background-color: $main_color;
 }
 
-.box {
+.headerContent {
   display: flex;
   align-items: center;
   width: 100%;
