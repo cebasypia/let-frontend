@@ -1,20 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { combineStrings } from 'utils/combineStrings';
+import noImage from 'images/noImage.png';
 import styles from './Avatar.module.scss';
 
 type Props = {
-  src: string;
+  src?: string;
   size?: 'small' | 'normal' | 'large';
-  color?: 'main' | 'sub' | '';
+  color?: 'main' | 'sub' | 'none';
   uri?: string;
   className?: string;
 };
 
 const Avatar: React.FC<Props> = ({
-  src,
+  src = 'noImage',
   size = 'normal',
-  color = '',
+  color = 'none',
   uri,
   className = '',
 }) => {
@@ -32,6 +33,9 @@ const Avatar: React.FC<Props> = ({
         <img
           className={combineStrings(styles.image, styles[color])}
           src={src}
+          onError={(e) => {
+            e.currentTarget.src = noImage;
+          }}
           alt="avatar"
         />
       )}

@@ -1,0 +1,41 @@
+@import 'components/scss/color.module.scss';
+@import 'components/scss/spacing.module.scss';
+
+.blocker {
+  width: 100vw;
+  height: $spacing-5;
+}
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  max-width: 100vw;
+  height: $spacing-5;
+  background-color: $main_color;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &.start {
+    justify-content: flex-start;
+  }
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.end {
+    justify-content: flex-end;
+  }
+}
+
+.margin {
+  margin: 0 $spacing-2;
+}

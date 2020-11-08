@@ -1,0 +1,15 @@
+@import 'components/scss/spacing.module.scss';
+
+.accountList {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  min-width: $spacing-9;
+  max-width: 70vw;
+  overflow: auto;
+}
+
+.margin {
+  margin: 0 $spacing-2;
+}

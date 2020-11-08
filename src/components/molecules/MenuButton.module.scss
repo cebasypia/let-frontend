@@ -1,0 +1,11 @@
+@import 'components/scss/spacing.module.scss';
+
+.menuList {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  min-width: $spacing-9;
+  max-width: 70vw;
+  overflow: auto;
+}
