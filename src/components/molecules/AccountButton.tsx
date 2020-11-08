@@ -4,9 +4,9 @@ import Button from 'components/atoms/Button';
 import Drawer from 'components/templates/Drawer';
 import List from 'components/organisms/List';
 import { accountItems } from 'utils/accountItems';
-import styles from './AccountInfo.module.scss';
+import styles from './AccountButton.module.scss';
 
-const UserInfo: React.FC = () => {
+const AccountButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const showDrawer = () => {
@@ -27,4 +27,4 @@ const UserInfo: React.FC = () => {
   );
 };
 
-export default UserInfo;
+export default AccountButton;

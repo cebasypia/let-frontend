@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { combineStrings } from 'utils/combineStrings';
-import AccountInfo from 'components/molecules/AccountInfo';
+import AccountButton from 'components/molecules/AccountButton';
 import BackButton from 'components/atoms/BackButton';
 import HomeButton from 'components/atoms/HomeButton';
 import MenuButton from 'components/molecules/MenuButton';
@@ -16,7 +16,11 @@ const Header: React.FC = () => {
       <div className={styles.blocker} />
       <header className={styles.wrapper}>
         <div className={combineStrings(styles.headerContent, styles.start)}>
-          {isHome ? <AccountInfo /> : <BackButton className={styles.margin} />}
+          {isHome ? (
+            <AccountButton />
+          ) : (
+            <BackButton className={styles.margin} />
+          )}
         </div>
         <div className={combineStrings(styles.headerContent, styles.center)}>
           <HomeButton />
