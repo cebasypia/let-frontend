@@ -1,5 +1,6 @@
 import React from 'react';
 import { combineStrings } from 'utils/combineStrings';
+import BackButton from 'components/atoms/BackButton';
 import HomeButton from 'components/atoms/HomeButton';
 import styles from './Header.module.scss';
 
@@ -9,7 +10,7 @@ const Header: React.FC = () => {
       <div className={styles.blocker} />
       <header className={styles.wrapper}>
         <div className={combineStrings(styles.box, styles.start)}>
-          <div>1</div>
+          <BackButton />
         </div>
         <div className={combineStrings(styles.box, styles.center)}>
           <HomeButton />
