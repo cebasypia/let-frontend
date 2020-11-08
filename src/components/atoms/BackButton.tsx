@@ -9,7 +9,7 @@ type Props = {
   className?: string;
 };
 
-const Header: React.FC<Props> = ({ className = '' }) => {
+const BackButton: React.FC<Props> = ({ className = '' }) => {
   const history = useHistory();
   const handleClick = () => {
     history.goBack();
@@ -26,4 +26,4 @@ const Header: React.FC<Props> = ({ className = '' }) => {
   );
 };
 
-export default Header;
+export default BackButton;
