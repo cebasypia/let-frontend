@@ -1,0 +1,36 @@
+@import 'components/scss/color.module.scss';
+@import 'components/scss/spacing.module.scss';
+
+.blocker {
+  width: 100%;
+  height: $spacing-5;
+}
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  height: $spacing-5;
+  background-color: $main_color;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &.start {
+    justify-content: flex-start;
+  }
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.end {
+    justify-content: flex-end;
+  }
+}
