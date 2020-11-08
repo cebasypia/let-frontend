@@ -12,8 +12,12 @@ const TweetList: React.FC<Props> = ({ tweets }) => {
   return (
     <>
       {tweets.map((tweet) => (
-        <Link className={styles.linkStyle} to={`/tweets/${tweet.id}`}>
-          <TweetCard key={tweet.id} tweet={tweet} />
+        <Link
+          key={tweet.id}
+          className={styles.linkStyle}
+          to={`/tweets/${tweet.id}`}
+        >
+          <TweetCard tweet={tweet} />
         </Link>
       ))}
     </>
