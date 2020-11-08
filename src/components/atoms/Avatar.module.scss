@@ -25,6 +25,10 @@
   height: 100%;
   border-radius: 50%;
 
+  &.none {
+    border: none;
+  }
+
   &.main {
     border: 2px $main_color solid;
   }
