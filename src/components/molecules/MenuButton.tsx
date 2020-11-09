@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Drawer from 'components/templates/Drawer';
 import List from 'components/organisms/List';
-import { menuItems } from 'utils/menuItems';
+import { useGetMenuItems } from 'hooks/useGetMenuItems';
 import { combineStrings } from 'utils/combineStrings';
 import icon from 'components/scss/icon.module.scss';
 import styles from './MenuButton.module.scss';
@@ -13,6 +13,7 @@ type Props = {
 };
 
 const MenuButton: React.FC<Props> = ({ className = '' }) => {
+  const menuItems = useGetMenuItems();
   const [isVisible, setIsVisible] = useState(false);
 
   const showDrawer = () => {

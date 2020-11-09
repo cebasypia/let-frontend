@@ -6,19 +6,17 @@ import TweetDetail from 'components/templates/TweetDetail';
 
 const Tweets: React.FC<RouteComponentProps> = ({ match }) => {
   return (
-    <>
-      <Switch>
-        <Route exact path={match.url}>
-          <TweetSearch />
-        </Route>
-        <Route path={`${match.url}/users/:screenName`}>
-          <TwitterUser />
-        </Route>
-        <Route path={`${match.url}/:id`}>
-          <TweetDetail />
-        </Route>
-      </Switch>
-    </>
+    <Switch>
+      <Route exact path={match.url}>
+        <TweetSearch />
+      </Route>
+      <Route path={`${match.url}/users/:screenName`}>
+        <TwitterUser />
+      </Route>
+      <Route path={`${match.url}/:id`}>
+        <TweetDetail />
+      </Route>
+    </Switch>
   );
 };
 

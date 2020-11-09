@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Button from 'components/atoms/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ListItem } from 'utils/listItem';
 import { combineStrings } from 'utils/combineStrings';
@@ -14,11 +14,18 @@ type Props = {
 const List: React.FC<Props> = ({ className = '', items }) => {
   return (
     <div className={combineStrings(styles.wrapper, className)}>
-      {items.map((item) => (
-        <Link key={item.to} to={item.to} className={styles.link}>
-          <FontAwesomeIcon className={icon.mr} icon={item.icon} /> {item.title}
-        </Link>
-      ))}
+      {items
+        .filter((item) => !item.isHidden)
+        .map((item) => (
+          <Button
+            key={item.title}
+            onClick={() => item.onClick(item.to)}
+            className={styles.link}
+          >
+            <FontAwesomeIcon className={icon.mr} icon={item.icon} />
+            {item.title}
+          </Button>
+        ))}
     </div>
   );
 };
