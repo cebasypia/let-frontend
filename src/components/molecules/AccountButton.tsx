@@ -3,10 +3,12 @@ import Avatar from 'components/atoms/Avatar';
 import Button from 'components/atoms/Button';
 import Drawer from 'components/templates/Drawer';
 import List from 'components/organisms/List';
-import { accountItems } from 'utils/accountItems';
+import { useGetAccountItems } from 'hooks/useGetAccountItems';
 import styles from './AccountButton.module.scss';
 
 const AccountButton: React.FC = () => {
+  const accountItems = useGetAccountItems();
+
   const [isVisible, setIsVisible] = useState(false);
 
   const showDrawer = () => {

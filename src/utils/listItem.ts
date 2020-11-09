@@ -4,4 +4,5 @@ export type ListItem = {
   to: string;
   icon: IconDefinition;
   title: string;
+  isHidden?: boolean;
 };

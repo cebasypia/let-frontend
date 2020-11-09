@@ -14,11 +14,14 @@ type Props = {
 const List: React.FC<Props> = ({ className = '', items }) => {
   return (
     <div className={combineStrings(styles.wrapper, className)}>
-      {items.map((item) => (
-        <Link key={item.to} to={item.to} className={styles.link}>
-          <FontAwesomeIcon className={icon.mr} icon={item.icon} /> {item.title}
-        </Link>
-      ))}
+      {items
+        .filter((item) => !item.isHidden)
+        .map((item) => (
+          <Link key={item.to} to={item.to} className={styles.link}>
+            <FontAwesomeIcon className={icon.mr} icon={item.icon} />
+            {item.title}
+          </Link>
+        ))}
     </div>
   );
 };
