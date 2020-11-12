@@ -11,7 +11,7 @@ import styles from './UserCard.module.scss';
 type Props = {
   user: User;
 };
-const UserCard: React.FC<Props> = ({ user }) => (
+const TwitterUserCard: React.FC<Props> = ({ user }) => (
   <>
     <Banner url={user.profileBannerUrl} />
     <div className={styles.wrapper}>
@@ -33,4 +33,4 @@ const UserCard: React.FC<Props> = ({ user }) => (
   </>
 );
 
-export default UserCard;
+export default TwitterUserCard;

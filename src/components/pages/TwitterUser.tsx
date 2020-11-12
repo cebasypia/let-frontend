@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetTwitterUser } from 'hooks/useGetTwitterUser';
 import { useGetTimeline } from 'hooks/useGetTimeline';
-import UserCard from 'components/organisms/UserCard';
+import TwitterUserCard from 'components/organisms/TwitterUserCard';
 import TweetList from 'components/templates/TweetList';
 import Tag from 'components/atoms/Tag';
 
@@ -19,7 +19,7 @@ const TwitterUser: React.FC = () => {
     <>
       {user ? (
         <>
-          <UserCard user={user} />
+          <TwitterUserCard user={user} />
           <Tag title="Tweets" />
           <TweetList tweets={tweets} />
         </>
