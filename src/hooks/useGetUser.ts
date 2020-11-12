@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-
 import { User, getUser } from 'domains/let';
 
 type ReturnValue = {

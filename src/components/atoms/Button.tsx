@@ -1,5 +1,5 @@
 import React from 'react';
-import { combineStrings } from 'utils/combineStrings';
+import classnames from 'classnames';
 import styles from './Button.module.scss';
 
 type Props = {
@@ -15,7 +15,7 @@ const Button: React.FC<Props> = ({
   children,
 }) => (
   <div
-    className={combineStrings(styles.wrapper, className)}
+    className={classnames(styles.wrapper, className)}
     role="button"
     tabIndex={0}
     onClick={onClick}

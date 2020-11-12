@@ -4,7 +4,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Drawer from 'components/templates/Drawer';
 import List from 'components/organisms/List';
 import { useGetMenuItems } from 'hooks/useGetMenuItems';
-import { combineStrings } from 'utils/combineStrings';
+import classnames from 'classnames';
 import icon from 'components/scss/icon.module.scss';
 import styles from './MenuButton.module.scss';
 
@@ -27,7 +27,7 @@ const MenuButton: React.FC<Props> = ({ className = '' }) => {
       <FontAwesomeIcon
         color="white"
         onClick={showDrawer}
-        className={combineStrings(icon.button, className)}
+        className={classnames(icon.button, className)}
         icon={faBars}
         size="lg"
       />

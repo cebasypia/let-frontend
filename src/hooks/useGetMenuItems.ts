@@ -1,6 +1,6 @@
 import { ListItem } from 'utils/listItem';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useGetListItem } from 'hooks/useGetListItem';
+import { useGetLinkTo } from 'hooks/useGetLinkTo';
 
 import {
   faHome,
@@ -11,30 +11,26 @@ import {
 
 export const useGetMenuItems = (): ListItem[] => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
-  const { linkTo } = useGetListItem();
+  const { linkTo } = useGetLinkTo();
 
   return [
     {
-      to: '/',
       icon: faHome,
       title: 'Home',
-      onClick: (path?: string) => linkTo(path),
+      onClick: () => linkTo('/'),
     },
     {
-      to: '/tweets',
       icon: faSearch,
       title: 'Search',
-      onClick: (path?: string) => linkTo(path),
+      onClick: () => linkTo('/tweets'),
     },
     {
-      to: '/signIn',
       icon: faSignInAlt,
       title: 'Sign in',
       isHidden: isAuthenticated,
       onClick: () => loginWithRedirect(),
     },
     {
-      to: '/signOut',
       icon: faSignOutAlt,
       title: 'Sign out',
       isHidden: !isAuthenticated,
