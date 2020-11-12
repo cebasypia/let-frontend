@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
+import ky from 'ky';
 import { AppState } from '@auth0/auth0-react/dist/auth0-provider';
 
 export const Auth0ProviderWithHistory: React.FC = ({ children }) => {
@@ -30,11 +31,11 @@ export const Auth0ProviderWithHistory: React.FC = ({ children }) => {
 };
 
 const UserMonitor: React.FC = ({ children }) => {
-  const { getAccessTokenSilently, user } = useAuth0();
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
 
   useEffect(() => {
     const RegisterUser = async () => {
-      if (!user) return;
+      if (!isAuthenticated) return;
       const accessToken = await getAccessTokenSilently({
         audience: process.env.REACT_APP_AUTH0_AUDIENCE,
       });
@@ -43,14 +44,17 @@ const UserMonitor: React.FC = ({ children }) => {
         `${process.env.REACT_APP_BACKEND_DOMAIN}/users/register`,
       );
 
-      const response = await fetch(url.toString(), {
+      const response = await ky(url.toString(), {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
 
       const _ = await response.json();
+
+      /* eslint-disable-next-line */
+      console.log(_)
     };
     void RegisterUser();
-  }, [user, getAccessTokenSilently]);
+  }, [isAuthenticated, getAccessTokenSilently]);
 
   return <>{children}</>;
 };

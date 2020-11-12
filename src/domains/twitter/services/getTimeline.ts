@@ -1,3 +1,4 @@
+import ky from 'ky';
 import { Tweet, isTweets } from 'domains/twitter/models/tweet';
 
 export const getTimeline = async (screenName: string): Promise<Tweet[]> => {
@@ -6,7 +7,7 @@ export const getTimeline = async (screenName: string): Promise<Tweet[]> => {
   );
 
   try {
-    const response = await fetch(url.toString());
+    const response = await ky(url.toString());
     const tweets = (await response.json()) as Tweet[];
     if (!isTweets(tweets)) {
       throw Error('API取得エラー: データ型不一致');
