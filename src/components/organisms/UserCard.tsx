@@ -33,7 +33,7 @@ const UserCard: React.FC<Props> = ({ user }) => {
             color="main"
           />
           {user.id === id && (
-            <Button onClick={() => linkTo('/account/edit')}>EDIT</Button>
+            <Button onClick={() => linkTo('/users/edit')}>EDIT</Button>
           )}
         </div>
         <div className={styles.contents}>
