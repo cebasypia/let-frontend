@@ -1,6 +1,6 @@
 import { ListItem } from 'utils/listItem';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useGetListItem } from 'hooks/useGetListItem';
+import { useGetLinkTo } from 'hooks/useGetLinkTo';
 
 import {
   faHome,
@@ -11,7 +11,7 @@ import {
 
 export const useGetMenuItems = (): ListItem[] => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
-  const { linkTo } = useGetListItem();
+  const { linkTo } = useGetLinkTo();
 
   return [
     {
