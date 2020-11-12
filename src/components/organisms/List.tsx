@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'components/atoms/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ListItem } from 'utils/listItem';
-import { combineStrings } from 'utils/combineStrings';
+import classnames from 'classnames';
 import icon from 'components/scss/icon.module.scss';
 import styles from './List.module.scss';
 
@@ -13,7 +13,7 @@ type Props = {
 
 const List: React.FC<Props> = ({ className = '', items }) => {
   return (
-    <div className={combineStrings(styles.wrapper, className)}>
+    <div className={classnames(styles.wrapper, className)}>
       {items
         .filter((item) => !item.isHidden)
         .map((item) => (

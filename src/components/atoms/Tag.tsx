@@ -1,5 +1,5 @@
 import React from 'react';
-import { combineStrings } from 'utils/combineStrings';
+import classnames from 'classnames';
 import styles from './Tag.module.scss';
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 };
 
 const Tag: React.FC<Props> = ({ title, className = '' }) => (
-  <div className={combineStrings(styles.wrapper, className)}>{title}</div>
+  <div className={classnames(styles.wrapper, className)}>{title}</div>
 );
 
 export default Tag;

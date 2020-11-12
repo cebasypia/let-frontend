@@ -4,8 +4,15 @@
   position: relative;
   width: 100vw;
   height: calc(100vw / 3);
-  background-color: rgba($color: $main_color, $alpha: 0.2);
   background-size: cover;
+}
+
+.main {
+  background-color: rgba($color: $main_color, $alpha: 0.2);
+}
+
+.sub {
+  background-color: rgba($color: $sub_color, $alpha: 0.2);
 }
 
 .banner {

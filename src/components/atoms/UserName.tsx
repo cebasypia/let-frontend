@@ -1,5 +1,5 @@
 import React from 'react';
-import { combineStrings } from 'utils/combineStrings';
+import classnames from 'classnames';
 import styles from './UserName.module.scss';
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 };
 
 const UserName: React.FC<Props> = ({ name, className = '' }) => (
-  <span className={combineStrings(styles.name, className)}>{name}</span>
+  <span className={classnames(styles.name, className)}>{name}</span>
 );
 
 export default UserName;
