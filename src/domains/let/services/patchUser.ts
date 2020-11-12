@@ -22,14 +22,9 @@ export const patchUser = async (
     if (!isUser(updatedUser)) {
       throw Error(`API取得エラー: データ型不一致`);
     }
-    /* eslint-disable-next-line */
-    console.log(updatedUser)
 
     return updatedUser;
   } catch (error) {
     throw Error(error);
-  } finally {
-    /* eslint-disable-next-line */
-    console.log('end')
   }
 };
