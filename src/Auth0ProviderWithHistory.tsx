@@ -39,11 +39,15 @@ const UserMonitor: React.FC = ({ children }) => {
         audience: process.env.REACT_APP_AUTH0_AUDIENCE,
       });
 
-      const url = new URL(`http://localhost:3000/api/v1/users/${user.sub}`);
+      const url = new URL(
+        `${process.env.REACT_APP_BACKEND_DOMAIN}/users/register`,
+      );
 
-      await fetch(url.toString(), {
+      const response = await fetch(url.toString(), {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
+
+      const _ = await response.json();
     };
     void RegisterUser();
   }, [user, getAccessTokenSilently]);

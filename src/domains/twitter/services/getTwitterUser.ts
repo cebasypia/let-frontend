@@ -2,7 +2,7 @@ import { User, isUser } from 'domains/twitter/models/user';
 
 export const getTwitterUser = async (screenName: string): Promise<User> => {
   const url = new URL(
-    `http://localhost:3000/api/v1/tweets/users/${screenName}`,
+    `${process.env.REACT_APP_BACKEND_DOMAIN}/tweets/users/${screenName}`,
   );
   try {
     const response = await fetch(url.toString());
