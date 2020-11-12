@@ -1,8 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetUser } from 'hooks/useGetUser';
-// import LUserCard from 'components/organisms/LUserCard';
-// import Tag from 'components/atoms/Tag';
+import UserCard from 'components/organisms/UserCard';
 
 type Params = {
   id: string;
@@ -16,11 +15,7 @@ const User: React.FC = () => {
     <>
       {user ? (
         <>
-          {/* <LUserCard user={user} /> */}
-          {/* <Tag title="Notes" /> */}
-          <div>{user.name}</div>
-          <div>{user.sub}</div>
-          <div>{user.introduction}</div>
+          <UserCard user={user} />
         </>
       ) : (
         !isLoading && <div>User not found</div>

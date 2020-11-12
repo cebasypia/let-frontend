@@ -1,12 +1,12 @@
 import React from 'react';
 import { Switch, Route, RouteComponentProps } from 'react-router';
-import UserInfo from 'components/pages/UserInfo';
+import User from 'components/pages/User';
 
 const Users: React.FC<RouteComponentProps> = ({ match }) => {
   return (
     <Switch>
       <Route path={`${match.url}/:id`}>
-        <UserInfo />
+        <User />
       </Route>
     </Switch>
   );
