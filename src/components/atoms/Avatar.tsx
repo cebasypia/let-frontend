@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import classnames from 'classnames';
+import Button from 'components/atoms/Button';
 import noImage from 'images/noImage.png';
 import styles from './Avatar.module.scss';
 
@@ -19,16 +20,26 @@ const Avatar: React.FC<Props> = ({
   uri,
   className = '',
 }) => {
+  const history = useHistory();
+
+  const handleClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    url: string,
+  ) => {
+    e.preventDefault();
+    history.push(url);
+  };
+
   return (
     <div className={classnames(styles.wrapper, styles[size], className)}>
       {uri ? (
-        <Link to={uri}>
+        <Button onClick={(e) => handleClick(e, uri)}>
           <img
             className={classnames(styles.image, styles[color])}
             src={src}
             alt="avatar"
           />
-        </Link>
+        </Button>
       ) : (
         <img
           className={classnames(styles.image, styles[color])}
