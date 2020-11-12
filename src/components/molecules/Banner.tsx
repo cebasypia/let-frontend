@@ -8,7 +8,7 @@ type Props = {
 const Banner: React.FC<Props> = ({ url }) => {
   return (
     <div className={styles.wrapper}>
-      <img className={styles.banner} src={url} alt="user banner" />
+      {url && <img className={styles.banner} src={url} alt="user banner" />}
     </div>
   );
 };
