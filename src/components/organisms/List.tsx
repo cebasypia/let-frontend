@@ -19,7 +19,7 @@ const List: React.FC<Props> = ({ className = '', items }) => {
         .map((item) => (
           <Button
             key={item.title}
-            onClick={() => item.onClick(item.to)}
+            onClick={item.onClick}
             className={styles.link}
           >
             <FontAwesomeIcon className={icon.mr} icon={item.icon} />

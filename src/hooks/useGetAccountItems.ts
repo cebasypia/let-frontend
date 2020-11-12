@@ -9,25 +9,22 @@ export const useGetAccountItems = (): ListItem[] => {
 
   return [
     {
-      to: '/signUp',
       icon: faUserPlus,
       title: 'Sign up',
       isHidden: isAuthenticated,
-      onClick: (path?: string) => linkTo(path),
+      onClick: () => linkTo('/signUp'),
     },
     {
-      to: '/account',
       icon: faUser,
       title: 'Profile',
       isHidden: !isAuthenticated,
-      onClick: (path?: string) => linkTo(path),
+      onClick: () => linkTo('/account'),
     },
     {
-      to: '/account/edit',
       icon: faCog,
       title: 'Edit',
       isHidden: !isAuthenticated,
-      onClick: (path?: string) => linkTo(path),
+      onClick: () => linkTo('/users/edit'),
     },
   ];
 };

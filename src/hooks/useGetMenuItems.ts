@@ -15,26 +15,22 @@ export const useGetMenuItems = (): ListItem[] => {
 
   return [
     {
-      to: '/',
       icon: faHome,
       title: 'Home',
-      onClick: (path?: string) => linkTo(path),
+      onClick: () => linkTo('/'),
     },
     {
-      to: '/tweets',
       icon: faSearch,
       title: 'Search',
-      onClick: (path?: string) => linkTo(path),
+      onClick: () => linkTo('/tweets'),
     },
     {
-      to: '/signIn',
       icon: faSignInAlt,
       title: 'Sign in',
       isHidden: isAuthenticated,
       onClick: () => loginWithRedirect(),
     },
     {
-      to: '/signOut',
       icon: faSignOutAlt,
       title: 'Sign out',
       isHidden: !isAuthenticated,
