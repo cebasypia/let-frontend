@@ -1,0 +1,21 @@
+@import 'components/scss/spacing.module.scss';
+
+.wrapper {
+  position: relative;
+  max-width: $spacing-10;
+  margin: $spacing-1 auto $spacing-2 auto;
+}
+
+.input {
+  width: 100%;
+  font: inherit;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+
+  :focus {
+    background-color: rgba($color: white, $alpha: 0);
+  }
+}
