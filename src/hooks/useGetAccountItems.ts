@@ -4,7 +4,7 @@ import { useGetLinkTo } from 'hooks/useGetLinkTo';
 import { faUserPlus, faUser, faCog } from '@fortawesome/free-solid-svg-icons';
 
 export const useGetAccountItems = (): ListItem[] => {
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
   const { linkTo } = useGetLinkTo();
 
   return [
@@ -18,7 +18,7 @@ export const useGetAccountItems = (): ListItem[] => {
       icon: faUser,
       title: 'Profile',
       isHidden: !isAuthenticated,
-      onClick: () => linkTo('/account'),
+      onClick: () => linkTo(`/users/${user.sub}`),
     },
     {
       icon: faCog,

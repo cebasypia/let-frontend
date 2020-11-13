@@ -101,6 +101,7 @@ module.exports = {
       },
     ],
     'import/prefer-default-export': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
   },
   overrides: [
     {
