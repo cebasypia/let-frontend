@@ -2,7 +2,7 @@ import { User, isUser } from 'domains/let';
 import ky from 'ky';
 
 type UserData = {
-  user: { name: string };
+  user: { name: string; description: string };
 };
 
 export const patchUser = async (
