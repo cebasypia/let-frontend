@@ -29,7 +29,7 @@
   margin: $spacing-2 auto;
   color: white;
   background: transparent;
-  background-color: $main-color;
+  background-color: $sub-color;
   border: none;
   border-radius: $spacing-2;
   outline: none;
@@ -40,13 +40,33 @@
   display: none;
 }
 
-.fileRow {
+.fileBox {
   display: flex;
   justify-content: space-around;
+}
+
+.label {
+  position: relative;
+  cursor: pointer;
+}
+
+.auth0Avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
+
+  .hint {
+    margin-right: $spacing-1;
+    font-size: small;
+    color: gray;
+  }
 }
 
 .icon {
   position: absolute;
   right: 0;
   bottom: 0;
+  color: rgba($color: gray, $alpha: 0.8);
 }
