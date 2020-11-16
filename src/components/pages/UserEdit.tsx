@@ -7,7 +7,7 @@ const UserEdit: React.FC = () => {
   const { user } = useAuth0();
   const loginUser = useGetUser(user.sub).user;
 
-  return <>{loginUser && <UserForm user={loginUser} />}</>;
+  return <>{loginUser && <UserForm loginUser={loginUser} />}</>;
 };
 
 export default UserEdit;
