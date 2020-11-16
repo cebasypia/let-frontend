@@ -1,11 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { User } from 'domains/let';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import Banner from 'components/molecules/Banner';
 import Avatar from 'components/atoms/Avatar';
 import UserName from 'components/atoms/UserName';
 import Text from 'components/atoms/Text';
-import Button from 'components/atoms/Button';
 import { useGetLinkTo } from 'hooks/useGetLinkTo';
 import styles from './UserCard.module.scss';
 
@@ -33,7 +34,12 @@ const UserCard: React.FC<Props> = ({ user }) => {
             color="main"
           />
           {user.id === id && (
-            <Button onClick={() => linkTo('/users/edit')}>EDIT</Button>
+            <FontAwesomeIcon
+              onClick={() => linkTo('/users/edit')}
+              color="gray"
+              size="lg"
+              icon={faEdit}
+            />
           )}
         </div>
         <div className={styles.contents}>
