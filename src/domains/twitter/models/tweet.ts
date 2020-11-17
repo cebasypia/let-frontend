@@ -7,6 +7,9 @@ export type Tweet = {
   uri: string;
   retweetCount: number;
   favoriteCount: number;
+  mediaUrls: string[];
+  quote?: Tweet;
+  retweetUser?: User;
   user: User;
 };
 
@@ -19,6 +22,7 @@ const isTweet = (arg: unknown): arg is Tweet => {
     typeof t?.createdAt === 'string' &&
     typeof t?.retweetCount === 'number' &&
     typeof t?.favoriteCount === 'number' &&
+    Array.isArray(t?.mediaUrls) &&
     isUser(t.user)
   );
 };
