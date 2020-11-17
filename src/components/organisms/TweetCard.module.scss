@@ -1,3 +1,5 @@
+@import 'components/scss/spacing.module.scss';
+
 .wrapper {
   display: flex;
   padding: 0.5rem;
@@ -15,4 +17,11 @@
 
 .text {
   white-space: pre-wrap;
+}
+
+.quote {
+  max-height: $spacing-10;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  border-radius: $spacing-1;
 }
