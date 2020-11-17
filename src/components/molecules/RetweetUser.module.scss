@@ -1,0 +1,11 @@
+@import 'components/scss/spacing.module.scss';
+
+$spacing-half : $spacing-1 / 2;
+
+.wrapper {
+  margin-top: $spacing-half;
+  margin-left: $spacing-3;
+  font-size: small;
+  font-weight: 700;
+  color: gray;
+}
