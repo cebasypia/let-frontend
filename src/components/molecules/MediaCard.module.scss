@@ -60,24 +60,27 @@
 .d2m2 {
   width: calc(50% - 1px);
   height: 100%;
-  margin-left: 2px;
+  margin-left: 1px;
 }
 
 .d3m1 {
-  width: calc(50% - 2px);
+  width: calc(50% - 1px);
   height: 100%;
-  margin-right: 2px;
+  margin-right: 1px;
 }
 
 .d3m2 {
-  width: 50%;
-  height: calc(50% - 2px);
-  margin-bottom: 2px;
+  width: calc(50% - 1px);
+  height: calc(50% - 1px);
+  margin-bottom: 1px;
+  margin-left: 1px;
 }
 
 .d3m3 {
-  width: 50%;
-  height: 50%;
+  width: calc(50% - 1px);
+  height: calc(50% - 1px);
+  margin-top: 1px;
+  margin-left: 1px;
 }
 
 .d4m1 {
