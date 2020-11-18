@@ -1,0 +1,10 @@
+@import 'components/scss/color.module.scss';
+@import 'components/scss/spacing.module.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding: $spacing-1;
+  padding-top: $spacing-2;
+  color: $sub_color;
+}
