@@ -1,15 +1,16 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import useGetTweets from 'hooks/use-get-tweets';
+import useGetTweets from 'hooks/useGetTweets';
+import NextTweetsButton from 'components/molecules/NextTweetsButton';
 import SearchBox from 'components/organisms/SearchBox';
-import TweetList from 'components/templates/TweetList';
 import TweetIndex from 'components/organisms/TweetIndex';
+import TweetList from 'components/templates/TweetList';
 
 const TweetSearch: React.FC = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const keyword = searchParams.get('keyword') ?? '';
-  const { tweets, isLoading } = useGetTweets(keyword);
+  const { tweets, isLoading, getNextTweets } = useGetTweets(keyword);
 
   return (
     <>
@@ -18,7 +19,13 @@ const TweetSearch: React.FC = () => {
       {keyword ? (
         <>
           <TweetList tweets={tweets} />
-          {!isLoading && !tweets.length && <div>Tweet not found</div>}
+          {!!tweets.length && (
+            <NextTweetsButton
+              isLoading={isLoading}
+              onClick={() => getNextTweets(tweets[tweets.length - 1].id)}
+            />
+          )}
+          {!tweets.length && !isLoading && <div>Tweet not found</div>}
         </>
       ) : (
         <TweetIndex />
