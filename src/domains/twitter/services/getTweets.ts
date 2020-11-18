@@ -1,9 +1,12 @@
 import ky from 'ky';
 import { Tweet, isTweets } from 'domains/twitter/models/tweet';
 
-const getTweets = async (keyword: string): Promise<Tweet[]> => {
+type GetTweets = (keyword: string, maxId?: string) => Promise<Tweet[]>;
+
+const getTweets: GetTweets = async (keyword, maxId = '0') => {
   const url = new URL(`${process.env.REACT_APP_BACKEND_DOMAIN}/tweets`);
   url.searchParams.set('word', keyword);
+  url.searchParams.set('max_id', maxId);
   const response = await ky(url.toString());
   const tweets = (await response.json()) as Tweet[];
 
