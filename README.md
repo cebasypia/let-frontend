@@ -1,46 +1,60 @@
-# Getting Started with Create React App
+# Let
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Learn English with Twitter
 
-## Available Scripts
+## サイト概要
 
-In the project directory, you can run:
+Twitter を利用した情報検索・英語多読学習サイト
+主な機能は 2 つ
 
-### `yarn start`
+1. 英語の Tweet を検索・一覧表示【３ヶ月目】
+   - UI で簡単に英語圏の Tweet を検索できる
+   - 読んだ Tweet に【読んだ！（仮）】やコメントをつけ記録できる
+   - 【読んだ！】やコメントをつけた Tweet は他人とシェアされる
+2. 検索された Tweet で英語多読学習ゲーム【４ヶ月目】
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- ルール
+  - 文章（Tweet）が肯定か、否定か、中立かを制限時間内で判断する
+  - 正誤判定に Natural Language API を用いる
+  - 数問出題し、得点を表示・記録する（翻訳文を表示できたらしたい）
+- 追加機能
+  - 学習記録用のモデル（ゲームに出た Tweet と正誤判定の記録）
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### サイトテーマ
 
-### `yarn test`
+気軽に英語に触れる!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### ポイント
 
-### `yarn build`
+- Twitter の短い文章で読みやすい！
+- 実際に日常で使われているから親しみやすい！
+- ゲームだから学習の記録がしやすい！
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### テーマを選んだ理由
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 英語をもっと読めるようになりたい
+- 海外の情報に強くなりたい
+- 様々な意見を知りたい
+- 外部 API を使ったアプリを作ってみたかったから
+- Natural Language API を導入しやすいと思ったから
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### ターゲットユーザ
 
-### `yarn eject`
+- 英語にもっと親しみたいすべての人
+- 長文を読むことに慣れていない人
+- Twitter で情報検索をしている人
+- Twitter で海外の情報を取得したい人
+- 様々な人の意見を知りたい人
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 主な利用シーン
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 英語の学習をしたいと思ったスキマ時間
+- ある事柄について海外の人がどういう反応をしているか調べたい時
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 設計書
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+https://drive.google.com/drive/folders/18FyM0jaD25Bg8ia-tK264u9hP48pUeXD?usp=sharing
 
-## Learn More
+### 機能一覧
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+https://docs.google.com/spreadsheets/d/1LcsaK8VOZZMownhmsn2hNMjNJMoPhnBOYcdGynhX1BE/edit?usp=sharing
